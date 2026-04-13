@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poulet Braisé Triolo — Villeneuve-d'Ascq</title>
+<meta name="description" content="Poulet braisé au charbon, mariné 24h. Livraison Triolo, Villeneuve-d'Ascq. Commandez sur WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coal: #0e0c0b;
+    --ash: #1a1714;
+    --ember: #c8440a;
+    --fire: #e85d10;
+    --glow: #ff7a2f;
+    --cream: #f0e6d3;
+    --smoke: #8a7e74;
+    --white: #faf8f5;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--coal);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* ── PROMO BANNER ── */
+  .promo-bar {
+    background: var(--ember);
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 100;
+  }
+  .promo-bar span { color: var(--glow); font-weight: 700; margin-left: 8px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 36px;
+    left: 0; right: 0;
+    z-index: 90;
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(14,12,11,0.95), transparent);
+    transition: background 0.3s;
+  }
+  nav.scrolled { background: rgba(14,12,11,0.97); border-bottom: 1px solid rgba(200,68,10,0.2); }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--smoke);
+    text-transform: uppercase;
+    font-weight: 400;
+    vertical-align: baseline;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--ember);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    font-size: 12px !important;
+    letter-spacing: 0.15em;
+    border: none;
+    cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .nav-cta:hover { background: var(--fire); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: var(--coal);
+  }
+
+  .hero-video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.03);
+    animation: heroZoom 12s ease-out forwards;
+  }
+
+  @keyframes heroZoom {
+    to { transform: scale(1); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(14,12,11,0.15) 0%,
+      rgba(14,12,11,0.4) 40%,
+      rgba(14,12,11,0.85) 75%,
+      rgba(14,12,11,0.97) 100%
+    );
+  }
+
+  /* ── HERO MARQUEE ── */
+  .hero-marquee {
+    position: absolute;
+    bottom: 140px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 1s 1.2s ease forwards;
+  }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .hero-marquee-track {
+    display: flex;
+    white-space: nowrap;
+    gap: 0;
+    animation: marqueeSlide 18s linear infinite;
+  }
+
+  .hero-marquee-track:nth-child(2) {
+    animation-direction: reverse;
+    animation-duration: 22s;
+    margin-top: -24px;
+  }
+
+  @keyframes marqueeSlide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-word {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 130px);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0 32px;
+    line-height: 1;
+    -webkit-text-stroke: 1px rgba(240,230,211,0.12);
+    color: transparent;
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  .marquee-word.filled {
+    color: rgba(200,68,10,0.08);
+    -webkit-text-stroke: 0;
+  }
+
+  /* diagonal cut */
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 120px;
+    background: var(--coal);
+    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 0 5% 80px;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--glow);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.3s ease forwards;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--glow);
+  }
+
+  .hero-title-marquee {
+    overflow: hidden;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeIn 0.1s 0.3s ease forwards;
+  }
+
+  .hero-title-line1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 14vw, 190px);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    display: block;
+    transform: translateX(-120%);
+    animation: slideFromLeft 0.9s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  .hero-title-line2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 14vw, 190px);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    color: var(--fire);
+    display: block;
+    transform: translateY(120%);
+    animation: slideFromBottom 0.9s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideFromLeft {
+    from { transform: translateX(-120%); opacity: 0; }
+    to   { transform: translateX(0);     opacity: 1; }
+  }
+
+  @keyframes slideFromBottom {
+    from { transform: translateY(80px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  .hero-title { display: none; }
+
+  .hero-sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    margin: 20px 0 36px;
+    max-width: 420px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.7s ease forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.9s ease forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ember);
+    color: var(--white);
+    padding: 16px 32px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--glow);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--cream);
+    padding: 16px 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(240,230,211,0.25);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--cream); color: var(--white); }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(240,230,211,0.12);
+    opacity: 0;
+    animation: fadeUp 0.7s 1.1s ease forwards;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--glow);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-top: 4px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── CONCEPT BAND ── */
+  .concept-band {
+    background: var(--ember);
+    padding: 14px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+  }
+  .band-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+  }
+  .band-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    opacity: 0.9;
+  }
+  .band-dot {
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── MENU ── */
+  #menu {
+    padding: 100px 5% 80px;
+    position: relative;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    gap: 24px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fire);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--fire);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  /* Menu Cards */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .menu-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    group: true;
+    background: var(--ash);
+  }
+
+  .menu-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .menu-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85);
+  }
+  .menu-card:hover .menu-card-img img {
+    transform: scale(1.06);
+    filter: brightness(1);
+  }
+
+  .menu-card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--ember);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  }
+
+  .menu-card-body {
+    padding: 20px 24px 24px;
+    border-top: 2px solid rgba(200,68,10,0.2);
+    transition: border-color 0.3s;
+  }
+  .menu-card:hover .menu-card-body { border-color: var(--ember); }
+
+  .menu-card-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .menu-card-desc {
+    font-size: 13px;
+    color: var(--smoke);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .menu-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-card-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--glow);
+    letter-spacing: 0.04em;
+  }
+  .menu-card-price .old {
+    font-size: 16px;
+    color: var(--smoke);
+    text-decoration: line-through;
+    margin-left: 6px;
+  }
+
+  /* quantity control */
+  .qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid rgba(200,68,10,0.4);
+  }
+  .qty-btn {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    color: var(--cream);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    font-family: 'Barlow', sans-serif;
+  }
+  .qty-btn:hover { background: var(--ember); }
+  .qty-count {
+    width: 32px;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    background: transparent;
+    border: none;
+    pointer-events: none;
+  }
+
+  /* Drinks row */
+  .drinks-row {
+    display: flex;
+    gap: 2px;
+    margin-top: 2px;
+  }
+  .drink-card {
+    flex: 1;
+    background: var(--ash);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .drink-card:hover { border-color: var(--ember); }
+  .drink-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--white);
+  }
+  .drink-sub { font-size: 12px; color: var(--smoke); margin-top: 2px; }
+  .drink-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--glow);
+  }
+
+  /* ── ORDER SECTION ── */
+  #commander {
+    padding: 100px 5%;
+    background: var(--ash);
+    position: relative;
+    overflow: hidden;
+  }
+  #commander::before {
+    content: 'ORDER';
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    color: rgba(200,68,10,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .order-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .order-left {}
+
+  .order-step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(240,230,211,0.07);
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--ember);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 56px;
+    opacity: 0.5;
+  }
+  .step-body {}
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .step-desc { font-size: 14px; color: var(--smoke); line-height: 1.6; }
+
+  /* Delivery options */
+  .delivery-opts {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .delivery-opt {
+    flex: 1;
+    border: 1px solid rgba(240,230,211,0.15);
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+  }
+  .delivery-opt.active, .delivery-opt:hover {
+    border-color: var(--ember);
+    background: rgba(200,68,10,0.08);
+  }
+  .delivery-opt input { display: none; }
+  .delivery-opt-icon { font-size: 22px; margin-bottom: 6px; }
+  .delivery-opt-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  /* Cart */
+  .order-cart {
+    background: var(--coal);
+    border: 1px solid rgba(200,68,10,0.2);
+    padding: 32px;
+    position: sticky;
+    top: 100px;
+  }
+
+  .cart-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(240,230,211,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cart-badge {
+    background: var(--ember);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 0;
+  }
+
+  .cart-items { min-height: 80px; margin-bottom: 24px; }
+  .cart-empty {
+    text-align: center;
+    padding: 32px 0;
+    color: var(--smoke);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(240,230,211,0.06);
+  }
+  .cart-item-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .cart-item-qty {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    color: var(--smoke);
+    margin-top: 2px;
+  }
+  .cart-item-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--glow);
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-top: 1px solid rgba(200,68,10,0.3);
+    margin-bottom: 20px;
+  }
+  .cart-total-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+  .cart-total-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--white);
+  }
+
+  .btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px;
+    background: #25D366;
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-whatsapp:hover { background: #1da855; transform: translateY(-1px); }
+
+  .cart-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--smoke);
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CONCEPT ── */
+  #concept {
+    padding: 120px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .concept-img-wrap {
+    position: relative;
+  }
+  .concept-img-wrap img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+  }
+  .concept-img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 60%;
+    height: 60%;
+    border: 2px solid var(--ember);
+    z-index: -1;
+  }
+
+  .concept-text {}
+  .concept-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    color: var(--white);
+    margin: 20px 0 32px;
+  }
+  .concept-quote em {
+    font-style: normal;
+    color: var(--fire);
+  }
+  .concept-body {
+    font-size: 15px;
+    color: var(--smoke);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pillar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--ash);
+    border-left: 3px solid var(--ember);
+  }
+  .pillar-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .pillar-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .pillar-text { font-size: 12px; color: var(--smoke); margin-top: 2px; }
+
+  /* ── AVIS ── */
+  #avis {
+    padding: 100px 5%;
+    background: var(--ash);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .review-card {
+    background: var(--coal);
+    padding: 32px;
+    position: relative;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .review-card:hover { border-color: var(--ember); }
+
+  .review-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 16px;
+  }
+  .star { color: #f5a623; font-size: 14px; }
+
+  .review-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--cream);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .review-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: rgba(200,68,10,0.1);
+    line-height: 1;
+  }
+
+  /* Rating bar */
+  .rating-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .rating-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .rating-stars-big { display: flex; gap: 4px; margin-bottom: 8px; }
+  .star-big { color: #f5a623; font-size: 20px; }
+  .rating-count { font-size: 13px; color: var(--smoke); }
+
+  /* ── LIVRAISON ── */
+  #livraison {
+    padding: 80px 5%;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    border-top: 1px solid rgba(200,68,10,0.15);
+  }
+
+  .livraison-map {
+    flex: 1;
+    background: var(--ash);
+    aspect-ratio: 16/10;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+  }
+  .livraison-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(80%) brightness(0.6);
+  }
+  .livraison-map-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .map-pin { font-size: 40px; animation: bounce 2s infinite; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .map-label {
+    background: var(--ember);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+  }
+
+  .livraison-text { flex: 1; }
+  .livraison-zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 32px;
+  }
+  .zone-tag {
+    background: var(--ash);
+    border: 1px solid rgba(200,68,10,0.3);
+    color: var(--cream);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080706;
+    padding: 60px 5% 32px;
+    border-top: 1px solid rgba(200,68,10,0.15);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(240,230,211,0.07);
+  }
+
+  .footer-brand {}
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--white);
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+  }
+  .footer-tagline { font-size: 13px; color: var(--smoke); max-width: 220px; line-height: 1.6; }
+
+  .footer-info { display: flex; flex-direction: column; gap: 10px; }
+  .footer-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--smoke);
+  }
+  .footer-info-item strong { color: var(--cream); font-weight: 500; }
+
+  .footer-ctas { display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    font-size: 11px;
+    color: var(--smoke);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── LIVE NOTIF ── */
+  .live-notif {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: var(--ash);
+    border: 2px solid var(--ember);
+    border-left: 6px solid var(--glow);
+    padding: 18px 22px;
+    max-width: 340px;
+    width: calc(100% - 48px);
+    z-index: 200;
+    transform: translateX(-120%);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    box-shadow: 0 8px 32px rgba(200,68,10,0.35), 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .live-notif.show { transform: translateX(0); }
+
+  .notif-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .notif-dot {
+    width: 10px;
+    height: 10px;
+    background: #25D366;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    flex-shrink: 0;
+  }
+  .notif-live-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #25D366;
+  }
+  .notif-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .notif-text {
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .notif-text strong { color: var(--glow); }
+  .notif-time {
+    font-size: 11px;
+    color: var(--smoke);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .notif-time::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: var(--smoke);
+  }
+
+  /* ── STICKY CTA ── */
+  .sticky-order {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    background: rgba(14,12,11,0.96);
+    border-top: 1px solid rgba(200,68,10,0.3);
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 80;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    backdrop-filter: blur(8px);
+  }
+  .sticky-order.show { transform: translateY(0); }
+  .sticky-total {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+  }
+  .sticky-total span { color: var(--glow); }
+
+  /* ── UPSELL MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(14,12,11,0.85);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.show { opacity: 1; pointer-events: all; }
+
+  .modal-box {
+    background: var(--ash);
+    border: 1px solid rgba(200,68,10,0.4);
+    border-top: 3px solid var(--ember);
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+  }
+  .modal-overlay.show .modal-box { transform: translateY(0); }
+
+  .modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .modal-sub { font-size: 13px; color: var(--smoke); margin-bottom: 20px; line-height: 1.5; }
+
+  .upsell-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .upsell-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--coal);
+    padding: 12px 16px;
+    border: 1px solid rgba(200,68,10,0.2);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .upsell-item:hover { border-color: var(--ember); }
+  .upsell-item-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .upsell-item-price { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--glow); }
+  .upsell-add {
+    background: var(--ember);
+    color: var(--white);
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .upsell-add:hover { background: var(--glow); }
+  .upsell-skip {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(240,230,211,0.15);
+    color: var(--smoke);
+    padding: 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .upsell-skip:hover { border-color: var(--smoke); color: var(--cream); }
+
+  /* ── FIDELITY STRIP ── */
+  .fidelity-strip {
+    background: linear-gradient(135deg, #1a1714 0%, #2a1f0e 100%);
+    border: 1px solid rgba(200,68,10,0.3);
+    border-left: 4px solid var(--glow);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fidelity-icon { font-size: 28px; flex-shrink: 0; }
+  .fidelity-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--glow);
+    margin-bottom: 4px;
+  }
+  .fidelity-text { font-size: 12px; color: var(--smoke); line-height: 1.5; }
+  .fidelity-dots { display: flex; gap: 4px; margin-top: 8px; }
+  .fidelity-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,68,10,0.4);
+    background: transparent;
+  }
+  .fidelity-dot.earned { background: var(--ember); border-color: var(--ember); }
+
+  /* ── QUICK REGISTER ── */
+  .quick-register {
+    background: var(--coal);
+    border: 1px solid rgba(200,68,10,0.2);
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .quick-register-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-bottom: 10px;
+  }
+  .quick-register-row { display: flex; gap: 8px; }
+  .quick-register input {
+    flex: 1;
+    background: var(--ash);
+    border: 1px solid rgba(200,68,10,0.25);
+    color: var(--white);
+    padding: 10px 14px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .quick-register input::placeholder { color: var(--smoke); }
+  .quick-register input:focus { border-color: var(--ember); }
+  .quick-register-btn {
+    background: var(--ember);
+    color: var(--white);
+    border: none;
+    padding: 10px 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .quick-register-btn:hover { background: var(--glow); }
+  .register-success {
+    font-size: 12px;
+    color: #25D366;
+    margin-top: 8px;
+    display: none;
+  }
+
+  /* ── URGENCY STOCK ── */
+  .stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(200,68,10,0.15);
+    border: 1px solid rgba(200,68,10,0.4);
+    color: var(--glow);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-top: 8px;
+  }
+  .stock-pulse {
+    width: 6px; height: 6px;
+    background: var(--glow);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  /* ── RECOMMANDE ── */
+  .recommande-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(200,68,10,0.3);
+    color: var(--smoke);
+    padding: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 10px;
+    display: none;
+  }
+  .recommande-btn.show { display: block; }
+  .recommande-btn:hover { border-color: var(--ember); color: var(--cream); }
+
+  /* ── RESPONSIVE TABLET 900px ── */
+  @media (max-width: 900px) {
+    /* NAV */
+    nav { padding: 14px 5%; }
+    .nav-links { display: none; }
+
+    /* HERO */
+    .hero-content { padding: 0 5% 60px; }
+    .hero-title-line1,
+    .hero-title-line2 { font-size: clamp(64px, 18vw, 120px); }
+    .hero-stats { gap: 16px; flex-wrap: wrap; }
+    .stat-value { font-size: 26px; }
+
+    /* SECTIONS */
+    .order-layout { grid-template-columns: 1fr; gap: 32px; }
+    .order-cart { position: static; }
+    #concept { grid-template-columns: 1fr; gap: 40px; }
+    .concept-img-wrap { display: none; }
+    .reviews-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+    #livraison { flex-direction: column; gap: 32px; }
+    .footer-top { flex-direction: column; gap: 32px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .rating-hero { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .menu-grid { grid-template-columns: 1fr 1fr; }
+    #menu { padding: 60px 5% 40px; }
+    #commander { padding: 60px 5%; }
+    #avis { padding: 60px 5%; }
+    #concept { padding: 60px 5%; }
+    #livraison { padding: 40px 5%; }
+  }
+
+  /* ── RESPONSIVE MOBILE 600px ── */
+  @media (max-width: 600px) {
+    /* PROMO BAR */
+    .promo-bar { font-size: 11px; padding: 8px 12px; }
+
+    /* NAV */
+    nav { padding: 12px 5%; top: 32px; }
+    .logo { font-size: 22px; }
+    .nav-cta { padding: 8px 14px; font-size: 11px; }
+
+    /* HERO */
+    #hero { min-height: 100svh; }
+    .hero-content { padding: 0 5% 80px; max-width: 100%; }
+    .hero-tag { font-size: 10px; margin-bottom: 12px; }
+    .hero-title-line1,
+    .hero-title-line2 { font-size: clamp(56px, 20vw, 90px); }
+    .hero-sub { font-size: 14px; margin: 14px 0 24px; }
+    .hero-actions { flex-direction: column; gap: 10px; }
+    .btn-primary { width: 100%; justify-content: center; }
+    .btn-ghost { width: 100%; justify-content: center; text-align: center; }
+    .hero-stats { display: none; }
+
+    /* MARQUEE */
+    .hero-marquee { bottom: 100px; }
+    .marquee-word { font-size: clamp(40px, 12vw, 72px); }
+
+    /* MENU */
+    #menu { padding: 48px 4% 32px; }
+    .menu-grid { grid-template-columns: 1fr; gap: 2px; }
+    .section-title { font-size: clamp(40px, 12vw, 64px); }
+    .drinks-row { flex-direction: column; gap: 2px; }
+
+    /* ORDER */
+    #commander { padding: 48px 4%; }
+    .delivery-opts { flex-wrap: wrap; }
+    .delivery-opt { min-width: calc(33% - 8px); }
+    .order-cart { padding: 20px; }
+    .cart-title { font-size: 22px; }
+    .quick-register-row { flex-direction: column; gap: 8px; }
+    .quick-register-btn { width: 100%; }
+    .fidelity-strip { padding: 14px; gap: 12px; }
+
+    /* UPSELL MODAL */
+    .modal-box { padding: 20px; margin: 0 16px; }
+    .modal-title { font-size: 22px; }
+    .upsell-item { flex-direction: column; gap: 10px; align-items: flex-start; }
+
+    /* CONCEPT */
+    #concept { padding: 48px 4%; }
+    .concept-quote { font-size: clamp(28px, 9vw, 48px); }
+
+    /* AVIS */
+    #avis { padding: 48px 4%; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .rating-num { font-size: 60px; }
+
+    /* LIVRAISON */
+    #livraison { padding: 40px 4%; }
+    .livraison-zones { gap: 6px; }
+
+    /* FOOTER */
+    footer { padding: 40px 4% 24px; }
+    .footer-logo { font-size: 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+    /* NOTIF */
+    .live-notif { left: 12px; right: 12px; max-width: none; width: auto; bottom: 80px; }
+    .notif-name { font-size: 18px; }
+
+    /* STICKY */
+    .sticky-order { padding: 10px 4%; gap: 10px; }
+    .sticky-total { font-size: 18px; }
+
+    /* CONCEPT BAND */
+    .band-item { font-size: 15px; padding: 0 20px; }
+  }
+
+  /* ── RESPONSIVE SMALL 380px ── */
+  @media (max-width: 380px) {
+    .hero-title-line1,
+    .hero-title-line2 { font-size: 52px; }
+    .nav-cta { display: none; }
+    .promo-bar { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  🔥 Menu Braisé à 15€ au lieu de 18€ — Offre limitée
+  <span id="countdown"></span>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    PB Triolo
+    <sub>Villeneuve-d'Ascq</sub>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">La Carte</a></li>
+    <li><a href="#commander">Commander</a></li>
+    <li><a href="#avis">Avis</a></li>
+  </ul>
+  <a href="https://wa.me/33620219862?text=Bonjour%2C%20je%20voudrais%20commander%20%F0%9F%94%A5" target="_blank" class="nav-cta">Commander →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- VIDÉO HERO -->
+  <div class="hero-video-wrap">
+    <video
+      id="heroVideo"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      webkit-playsinline
+    >
+      <source src="https://res.cloudinary.com/dzh5vllay/video/upload/q_auto,w_720/v1776024816/hero_kyj2li.mp4" type="video/mp4" media="(max-width: 600px)">
+      <source src="https://res.cloudinary.com/dzh5vllay/video/upload/v1776024816/hero_kyj2li.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <!-- MARQUEE NOM -->
+  <div class="hero-marquee">
+    <div class="hero-marquee-track">
+      <span class="marquee-word">Poulet Braisé</span>
+      <span class="marquee-word filled">Triolo</span>
+      <span class="marquee-word">Poulet Braisé</span>
+      <span class="marquee-word filled">Villeneuve-d'Ascq</span>
+      <span class="marquee-word">Poulet Braisé</span>
+      <span class="marquee-word filled">Triolo</span>
+      <span class="marquee-word">Poulet Braisé</span>
+      <span class="marquee-word filled">Villeneuve-d'Ascq</span>
+    </div>
+    <div class="hero-marquee-track">
+      <span class="marquee-word filled">Braisé au Charbon</span>
+      <span class="marquee-word">PB Triolo</span>
+      <span class="marquee-word filled">Braisé au Charbon</span>
+      <span class="marquee-word">PB Triolo</span>
+      <span class="marquee-word filled">Braisé au Charbon</span>
+      <span class="marquee-word">PB Triolo</span>
+      <span class="marquee-word filled">Braisé au Charbon</span>
+      <span class="marquee-word">PB Triolo</span>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Triolo · Villeneuve-d'Ascq</div>
+  <div class="hero-title-marquee">
+    <span class="hero-title-line1">POULET</span>
+    <span class="hero-title-line2">BRAISÉ</span>
+  </div>
+    <p class="hero-sub">Mariné 24h aux épices maison. Braisé au feu de charbon. Livré chaud chez toi.</p>
+    <div class="hero-actions">
+      <a href="#commander" class="btn-primary">
+        <span>🔥 Commander maintenant</span>
+      </a>
+      <a href="tel:0620219862" class="btn-ghost">📞 06 20 21 98 62</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">4.8</span>
+        <span class="stat-label">★ Google</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">120+</span>
+        <span class="stat-label">Avis vérifiés</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">7j/7</span>
+        <span class="stat-label">11h – 22h</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="cmd-count">58</span>
+        <span class="stat-label">Commandes aujourd'hui</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT BAND -->
+<div class="concept-band">
+  <div class="band-track" id="band">
+    <span class="band-item">Mariné 24h <span class="band-dot"></span></span>
+    <span class="band-item">Braisé au charbon <span class="band-dot"></span></span>
+    <span class="band-item">Livré chaud <span class="band-dot"></span></span>
+    <span class="band-item">Sans friteuse <span class="band-dot"></span></span>
+    <span class="band-item">Fait maison <span class="band-dot"></span></span>
+    <span class="band-item">Triolo, Villeneuve-d'Ascq <span class="band-dot"></span></span>
+    <span class="band-item">Mariné 24h <span class="band-dot"></span></span>
+    <span class="band-item">Braisé au charbon <span class="band-dot"></span></span>
+    <span class="band-item">Livré chaud <span class="band-dot"></span></span>
+    <span class="band-item">Sans friteuse <span class="band-dot"></span></span>
+    <span class="band-item">Fait maison <span class="band-dot"></span></span>
+    <span class="band-item">Triolo, Villeneuve-d'Ascq <span class="band-dot"></span></span>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">La carte</div>
+      <h2 class="section-title">Nos<br>Formules</h2>
+    </div>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <div class="menu-card" data-id="menu-braise" data-name="Menu Braisé" data-price="15" data-old="18">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Menu Braisé" loading="lazy">
+      </div>
+      <div class="menu-card-badge">Best-seller</div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">Menu Braisé</div>
+        <div class="menu-card-desc">Demi-poulet + frites maison + boisson. Le combo parfait.</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">15€ <span class="old">18€</span></div>
+          <div class="qty-control">
+            <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+            <span class="qty-count">0</span>
+            <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-id="menu-frites" data-name="Menu Frites" data-price="16" data-old="18">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&q=80" alt="Menu Frites" loading="lazy">
+      </div>
+      <div class="menu-card-badge">🔥 Populaire</div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">Menu Frites</div>
+        <div class="menu-card-desc">Poulet braisé + grande portion de frites + sauce maison.</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">16€ <span class="old">18€</span></div>
+          <div class="qty-control">
+            <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+            <span class="qty-count">0</span>
+            <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-id="poulet-entier" data-name="Poulet Entier" data-price="12">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=600&q=80" alt="Poulet Entier" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">Poulet Entier</div>
+        <div class="menu-card-desc">Poulet entier braisé au charbon. Mariné 24h aux épices maison.</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">12€</div>
+          <div class="qty-control">
+            <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+            <span class="qty-count">0</span>
+            <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-id="demi-poulet" data-name="Demi-Poulet" data-price="7">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1611599537845-1c7aca0091c0?w=600&q=80" alt="Demi Poulet" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">Demi-Poulet</div>
+        <div class="menu-card-desc">Même saveur, portion solo. Idéal pour une envie braisée solo.</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">7€</div>
+          <div class="qty-control">
+            <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+            <span class="qty-count">0</span>
+            <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-id="alloco" data-name="Alloco + Poulet" data-price="9">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?w=600&q=80" alt="Alloco Poulet" loading="lazy">
+      </div>
+      <div class="menu-card-badge">Combo</div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">Alloco + Poulet</div>
+        <div class="menu-card-desc">Plantains frits dorés + demi-poulet braisé. Combo afro-street.</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">9€</div>
+          <div class="qty-control">
+            <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+            <span class="qty-count">0</span>
+            <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-card" data-id="salade" data-name="Salade Braisée" data-price="8">
+      <div class="menu-card-img">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Salade Braisée" loading="lazy">
+      </div>
+      <div class="menu-card-body">
+        <div class="menu-card-name">Salade Braisée</div>
+        <div class="menu-card-desc">Poulet effiloché sur crudités fraîches. Léger mais savoureux.</div>
+        <div class="menu-card-footer">
+          <div class="menu-card-price">8€</div>
+          <div class="qty-control">
+            <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+            <span class="qty-count">0</span>
+            <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DRINKS -->
+  <div class="drinks-row" style="margin-top:32px;">
+    <div class="drink-card" data-id="bissap" data-name="Bissap" data-price="2" onclick="addDrink(this)">
+      <div>
+        <div class="drink-name">Bissap</div>
+        <div class="drink-sub">Hibiscus glacé, maison</div>
+      </div>
+      <div class="drink-price">2€</div>
+    </div>
+    <div class="drink-card" data-id="gingembre" data-name="Gingembre" data-price="2" onclick="addDrink(this)">
+      <div>
+        <div class="drink-name">Gingembre</div>
+        <div class="drink-sub">Frais et piquant</div>
+      </div>
+      <div class="drink-price">2€</div>
+    </div>
+    <div class="drink-card" data-id="soda" data-name="Soda" data-price="2" onclick="addDrink(this)">
+      <div>
+        <div class="drink-name">Coca · Fanta</div>
+        <div class="drink-sub">Canette 33cl</div>
+      </div>
+      <div class="drink-price">2€</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMANDER -->
+<section id="commander">
+  <div class="order-layout">
+    <div class="order-left">
+      <div class="section-eyebrow">Commande</div>
+      <h2 class="section-title" style="margin-bottom:48px;">Comment<br>ça marche</h2>
+
+      <div class="order-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">Compose ta commande</div>
+          <div class="step-desc">Choisis tes plats dans la carte ci-dessus. Les quantités s'ajoutent au récapitulatif automatiquement.</div>
+        </div>
+      </div>
+
+      <div class="order-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">Choisis ton mode</div>
+          <div class="step-desc">Livraison à domicile, sur place ou à emporter — à toi de choisir.</div>
+          <div class="delivery-opts">
+            <label class="delivery-opt active" onclick="selectDelivery(this, 'livraison')">
+              <div class="delivery-opt-icon">🛵</div>
+              <div class="delivery-opt-name">Livraison</div>
+            </label>
+            <label class="delivery-opt" onclick="selectDelivery(this, 'surplace')">
+              <div class="delivery-opt-icon">🍽️</div>
+              <div class="delivery-opt-name">Sur place</div>
+            </label>
+            <label class="delivery-opt" onclick="selectDelivery(this, 'emporter')">
+              <div class="delivery-opt-icon">🥡</div>
+              <div class="delivery-opt-name">À emporter</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-step" style="border:none;margin:0;padding:0;">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">Envoie sur WhatsApp</div>
+          <div class="step-desc">Un message pré-rempli avec ta commande s'envoie en 1 clic. On confirme sous 2 min.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-cart">
+      <div class="cart-title">
+        Récapitulatif
+        <span class="cart-badge" id="cartCount">0 article</span>
+      </div>
+
+      <!-- QUICK REGISTER -->
+      <div class="quick-register">
+        <div class="quick-register-title">📲 Ton numéro = tes points fidélité</div>
+        <div class="quick-register-row">
+          <input type="tel" id="phoneInput" placeholder="06 XX XX XX XX" maxlength="14">
+          <button class="quick-register-btn" onclick="registerPhone()">Valider</button>
+        </div>
+        <div class="register-success" id="registerSuccess">✅ Numéro enregistré — tu cumules des points !</div>
+      </div>
+
+      <!-- FIDELITY -->
+      <div class="fidelity-strip">
+        <div class="fidelity-icon">⭐</div>
+        <div>
+          <div class="fidelity-title">Carte fidélité — 10e commande offerte</div>
+          <div class="fidelity-text">1 point par commande. À la 10e — c'est gratuit.</div>
+          <div class="fidelity-dots" id="fidelityDots"></div>
+        </div>
+      </div>
+
+      <!-- RECOMMANDE -->
+      <button class="recommande-btn" id="recommandeBtn" onclick="recommande()">
+        🔄 Recommander la même chose
+      </button>
+
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">Ajoute des plats pour commencer ↑</div>
+      </div>
+      <div class="cart-total">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-value" id="cartTotal">0€</span>
+      </div>
+      <a href="#" id="whatsappBtn" class="btn-whatsapp" onclick="triggerUpsell(event)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Commander sur WhatsApp
+      </a>
+      <p class="cart-note">Confirmation sous 2 min · Paiement à la livraison</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="concept-img-wrap">
+    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80" alt="Braisé au charbon">
+  </div>
+  <div class="concept-text">
+    <div class="section-eyebrow">Notre philosophie</div>
+    <h2 class="concept-quote">Pas de<br>raccourci.<br><em>Juste du feu.</em></h2>
+    <p class="concept-body">
+      Ici on ne triche pas. Chaque poulet passe 24h dans la marinade avant de rejoindre les braises. Pas de four, pas de micro-ondes. Juste le charbon, la chaleur, et le temps qu'il faut.
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🥩</div>
+        <div>
+          <div class="pillar-title">24h de marinade</div>
+          <div class="pillar-text">Épices maison, recette familiale transmise.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔥</div>
+        <div>
+          <div class="pillar-title">Braisé au charbon</div>
+          <div class="pillar-text">Feu de bois, fumée naturelle, croûte dorée.</div>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🛵</div>
+        <div>
+          <div class="pillar-title">Chaud livré chez toi</div>
+          <div class="pillar-text">Triolo et alentours, en moins de 30 min.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Avis clients</div>
+      <h2 class="section-title">Ce qu'ils<br>disent</h2>
+    </div>
+    <div>
+      <div class="rating-hero">
+        <div class="rating-num">4.8</div>
+        <div>
+          <div class="rating-stars-big">
+            <span class="star-big">★</span><span class="star-big">★</span><span class="star-big">★</span><span class="star-big">★</span><span class="star-big">★</span>
+          </div>
+          <div class="rating-count">120+ avis Google vérifiés</div>
+          <a href="https://g.page/r/" target="_blank" style="font-size:12px;color:var(--fire);font-family:'Barlow Condensed',sans-serif;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;display:block;margin-top:6px;">⭐ Laisser un avis →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="review-text">Meilleur poulet braisé du coin, j'en reprends chaque semaine. L'odeur du charbon quand on ouvre le sac, c'est quelque chose.</div>
+      <div class="review-author">Mamadou K.</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="review-text">Livraison rapide, poulet bien mariné, rien à redire. Le menu braisé vaut vraiment le détour, les frites sont croustillantes.</div>
+      <div class="review-author">Sarah L.</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="review-text">Le menu braisé c'est le meilleur rapport qualité-prix. L'alloco + poulet m'a rappelé les saveurs de chez moi, vraiment authentique.</div>
+      <div class="review-author">Youssef B.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRAISON -->
+<section id="livraison">
+  <div class="livraison-map">
+    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&q=80" alt="Villeneuve-d'Ascq">
+    <div class="livraison-map-overlay">
+      <div class="map-pin">📍</div>
+      <div class="map-label">Triolo · Villeneuve-d'Ascq</div>
+    </div>
+  </div>
+  <div class="livraison-text">
+    <div class="section-eyebrow">Zone de livraison</div>
+    <h2 class="section-title" style="font-size:clamp(40px,5vw,72px);margin-bottom:16px;">On livre<br>chez toi</h2>
+    <p style="font-size:14px;color:var(--smoke);line-height:1.7;margin-bottom:20px;">Villeneuve-d'Ascq et les quartiers alentours. Envoie un message pour vérifier ta zone avant de commander.</p>
+    <div class="livraison-zones">
+      <span class="zone-tag">Triolo</span>
+      <span class="zone-tag">Cousineire</span>
+      <span class="zone-tag">Résidence</span>
+      <span class="zone-tag">Annappes</span>
+      <span class="zone-tag">Flers</span>
+      <span class="zone-tag">Et +</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <a href="https://wa.me/33620219862?text=Bonjour%2C%20je%20voudrais%20v%C3%A9rifier%20ma%20zone%20de%20livraison" target="_blank" class="btn-primary" style="display:inline-flex;width:fit-content;">
+        <span>Vérifier ma zone →</span>
+      </a>
+      <div style="font-size:12px;color:var(--smoke);">🕐 Livraison 7j/7 · 11h – 22h · ~30 min</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">PB Triolo</a>
+      <p class="footer-tagline">Poulet braisé au charbon, mariné 24h. Le goût authentique, livré chez toi.</p>
+    </div>
+    <div class="footer-info">
+      <div class="footer-info-item">📍 <strong>Quartier Triolo, 59650 Villeneuve-d'Ascq</strong></div>
+      <div class="footer-info-item">📞 <strong>07 68 78 98 00</strong></div>
+      <div class="footer-info-item">🕐 <strong>7j/7 · 11h – 22h</strong></div>
+    </div>
+    <div class="footer-ctas">
+      <a href="https://wa.me/33620219862?text=Bonjour%2C%20je%20voudrais%20commander" target="_blank" class="btn-primary" style="width:fit-content;">
+        <span>Commander →</span>
+      </a>
+      <a href="https://g.page/r/" target="_blank" class="btn-ghost" style="width:fit-content;font-size:12px;">⭐ Laisser un avis</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Poulet Braisé Triolo — Villeneuve-d'Ascq</span>
+    <span>fait avec 🔥</span>
+  </div>
+</footer>
+
+<!-- UPSELL MODAL -->
+<div class="modal-overlay" id="upsellModal">
+  <div class="modal-box">
+    <div class="modal-title">👀 Attends une seconde...</div>
+    <div class="modal-sub">Les clients qui commandent ça rajoutent souvent :</div>
+    <div class="upsell-items">
+      <div class="upsell-item">
+        <div>
+          <div class="upsell-item-name">🍟 Frites maison</div>
+          <div style="font-size:11px;color:var(--smoke);margin-top:2px;">Croustillantes + sauce maison</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="upsell-item-price">3€</div>
+          <button class="upsell-add" onclick="addUpsell('frites-seules','Frites maison',3,this)">+ Ajouter</button>
+        </div>
+      </div>
+      <div class="upsell-item">
+        <div>
+          <div class="upsell-item-name">🥤 Bissap maison</div>
+          <div style="font-size:11px;color:var(--smoke);margin-top:2px;">Hibiscus glacé, fait maison</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="upsell-item-price">2€</div>
+          <button class="upsell-add" onclick="addUpsell('bissap-upsell','Bissap maison',2,this)">+ Ajouter</button>
+        </div>
+      </div>
+      <div class="upsell-item">
+        <div>
+          <div class="upsell-item-name">🌶️ Sauce pimentée</div>
+          <div style="font-size:11px;color:var(--smoke);margin-top:2px;">Maison, pour les courageux</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="upsell-item-price">1€</div>
+          <button class="upsell-add" onclick="addUpsell('sauce','Sauce pimentée',1,this)">+ Ajouter</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;" onclick="closeUpsell()">
+      <span>✅ C'est bon, continuer</span>
+    </button>
+    <button class="upsell-skip" onclick="closeUpsell()">Non merci</button>
+  </div>
+</div>
+
+<!-- LIVE NOTIF -->
+<div class="live-notif" id="liveNotif">
+  <div class="notif-top">
+    <div class="notif-dot"></div>
+    <div class="notif-live-label">Commande en direct</div>
+  </div>
+  <div class="notif-name" id="notifName">Kévin</div>
+  <div class="notif-text" id="notifText">vient de commander un <strong>Menu Braisé</strong></div>
+  <div class="notif-time" id="notifTime">il y a 3 min</div>
+</div>
+
+<!-- STICKY -->
+<div class="sticky-order" id="stickyOrder">
+  <span style="font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--smoke);">Ta commande</span>
+  <span class="sticky-total">Total : <span id="stickyTotal">0€</span></span>
+  <a href="#" onclick="sendWhatsApp(event)" class="btn-whatsapp" style="width:auto;padding:14px 24px;font-size:13px;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Commander
+  </a>
+</div>
+
+<script>
+// ── CART STATE ──
+let cart = {};
+let deliveryMode = 'livraison';
+let lastOrder = null;
+let orderCount = parseInt(localStorage.getItem('pb_orders') || '0');
+let upsellShown = false;
+
+const menuData = {};
+document.querySelectorAll('.menu-card').forEach(card => {
+  const id = card.dataset.id;
+  menuData[id] = {
+    name: card.dataset.name,
+    price: parseFloat(card.dataset.price),
+    old: card.dataset.old || null
+  };
+});
+
+// ── FIDELITY DOTS ──
+function renderFidelity() {
+  const dots = document.getElementById('fidelityDots');
+  if (!dots) return;
+  let html = '';
+  for (let i = 0; i < 10; i++) {
+    html += `<div class="fidelity-dot ${i < orderCount ? 'earned' : ''}"></div>`;
+  }
+  dots.innerHTML = html;
+  if (orderCount >= 1) {
+    document.getElementById('recommandeBtn')?.classList.add('show');
+  }
+}
+renderFidelity();
+
+// ── QUICK REGISTER ──
+function registerPhone() {
+  const phone = document.getElementById('phoneInput').value.trim();
+  if (phone.length < 10) { alert('Entre un numéro valide'); return; }
+  localStorage.setItem('pb_phone', phone);
+  document.getElementById('registerSuccess').style.display = 'block';
+  document.getElementById('phoneInput').disabled = true;
+  document.querySelector('.quick-register-btn').disabled = true;
+}
+// Pre-fill if already registered
+const savedPhone = localStorage.getItem('pb_phone');
+if (savedPhone) {
+  const inp = document.getElementById('phoneInput');
+  if (inp) { inp.value = savedPhone; inp.disabled = true; }
+  document.getElementById('registerSuccess').style.display = 'block';
+  const btn = document.querySelector('.quick-register-btn');
+  if (btn) btn.disabled = true;
+}
+
+// ── RECOMMANDE ──
+function recommande() {
+  const saved = localStorage.getItem('pb_last_order');
+  if (!saved) return;
+  cart = JSON.parse(saved);
+  updateCart();
+  document.getElementById('commander')?.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── QTY CHANGE ──
+function changeQty(btn, delta) {
+  const card = btn.closest('.menu-card');
+  const id = card.dataset.id;
+  const countEl = btn.parentElement.querySelector('.qty-count');
+  let current = parseInt(countEl.textContent) || 0;
+  current = Math.max(0, current + delta);
+  countEl.textContent = current;
+  if (current === 0) delete cart[id];
+  else cart[id] = { name: menuData[id].name, price: menuData[id].price, qty: current };
+  updateCart();
+
+  // Déclenche l'upsell 1s après avoir ajouté (pas supprimé) un plat principal
+  if (delta > 0 && !upsellShown) {
+    const hasMeat = Object.keys(cart).some(k => !['bissap','gingembre','soda','frites-seules','sauce','bissap-upsell'].includes(k));
+    if (hasMeat) {
+      clearTimeout(window.upsellTimer);
+      window.upsellTimer = setTimeout(() => {
+        document.getElementById('upsellModal').classList.add('show');
+        upsellShown = true;
+      }, 1000);
+    }
+  }
+}
+
+function addDrink(el) {
+  const id = el.dataset.id;
+  const name = el.dataset.name;
+  const price = parseFloat(el.dataset.price);
+  if (!cart[id]) cart[id] = { name, price, qty: 0 };
+  cart[id].qty++;
+  updateCart();
+  el.style.borderColor = 'var(--ember)';
+  setTimeout(() => el.style.borderColor = '', 800);
+}
+
+function selectDelivery(el, mode) {
+  document.querySelectorAll('.delivery-opt').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  deliveryMode = mode;
+}
+
+// ── UPSELL ──
+function addUpsell(id, name, price, btn) {
+  if (!cart[id]) cart[id] = { name, price, qty: 0 };
+  cart[id].qty++;
+  updateCart();
+  btn.textContent = '✓ Ajouté';
+  btn.style.background = '#25D366';
+  btn.disabled = true;
+}
+
+function closeUpsell() {
+  document.getElementById('upsellModal').classList.remove('show');
+}
+
+function triggerUpsell(e) {
+  e.preventDefault();
+  const items = Object.values(cart).filter(i => i.qty > 0);
+  if (items.length === 0) { alert('Ajoute au moins un plat avant de commander !'); return; }
+  sendWhatsApp();
+}
+
+// ── SEND WHATSAPP ──
+function sendWhatsApp() {
+  const items = Object.values(cart).filter(i => i.qty > 0);
+  if (items.length === 0) return;
+  const modeLabel = { livraison: '🛵 Livraison', surplace: '🍽️ Sur place', emporter: '🥡 À emporter' }[deliveryMode];
+  const phone = localStorage.getItem('pb_phone') || '';
+  const lines = items.map(i => `• ${i.qty}x ${i.name} — ${(i.price * i.qty).toFixed(0)}€`).join('\n');
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const phoneInfo = phone ? `\nMon numéro fidélité : ${phone}` : '';
+  const msg = `Bonjour ! Je voudrais commander 🔥\n\n${lines}\n\nTotal : ${total}€\nMode : ${modeLabel}${phoneInfo}\n\nMerci !`;
+
+  // Save last order for recommande
+  localStorage.setItem('pb_last_order', JSON.stringify(cart));
+  orderCount++;
+  localStorage.setItem('pb_orders', orderCount.toString());
+  renderFidelity();
+
+  window.open('https://wa.me/33620219862?text=' + encodeURIComponent(msg), '_blank');
+
+  // Post-order review prompt after 3 seconds
+  setTimeout(() => showReviewPrompt(), 3000);
+}
+
+// ── POST-ORDER REVIEW PROMPT ──
+function showReviewPrompt() {
+  const notif = document.getElementById('liveNotif');
+  document.getElementById('notifName').textContent = 'Merci pour ta commande !';
+  document.getElementById('notifText').innerHTML = '⭐ <a href="https://g.page/r/" target="_blank" style="color:var(--glow);">Laisse-nous un avis Google</a> — ça nous aide beaucoup 🙏';
+  document.getElementById('notifTime').textContent = 'Ça prend 30 secondes';
+  notif.classList.add('show');
+  setTimeout(() => notif.classList.remove('show'), 8000);
+}
+
+// ── UPDATE CART UI ──
+function updateCart() {
+  const items = Object.values(cart).filter(i => i.qty > 0);
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const count = items.reduce((s, i) => s + i.qty, 0);
+
+  const cartEl = document.getElementById('cartItems');
+  if (items.length === 0) {
+    cartEl.innerHTML = '<div class="cart-empty">Ajoute des plats pour commencer ↑</div>';
+  } else {
+    cartEl.innerHTML = items.map(i => `
+      <div class="cart-item">
+        <div>
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-qty">× ${i.qty}</div>
+        </div>
+        <div class="cart-item-price">${(i.price * i.qty).toFixed(0)}€</div>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('cartTotal').textContent = total + '€';
+  document.getElementById('cartCount').textContent = count + (count <= 1 ? ' article' : ' articles');
+  document.getElementById('stickyTotal').textContent = total + '€';
+
+  const sticky = document.getElementById('stickyOrder');
+  if (count > 0) sticky.classList.add('show');
+  else sticky.classList.remove('show');
+}
+
+// ── COUNTDOWN ──
+function updateCountdown() {
+  const now = new Date();
+  const end = new Date();
+  end.setHours(22, 0, 0, 0);
+  const diff = end - now;
+  if (diff <= 0) { document.getElementById('countdown').textContent = '— Offre terminée'; return; }
+  const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+  const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+  const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+  document.getElementById('countdown').textContent = `⏰ Expire dans ${h}:${m}:${s}`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ── SCROLL NAV ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── LIVE NOTIFS ──
+const notifs = [
+  { name: 'Kévin M.', text: 'vient de commander un <strong>Menu Braisé 🔥</strong>', time: 'il y a 2 min' },
+  { name: 'Fatou D.', text: 'vient de commander un <strong>Poulet Entier</strong>', time: 'il y a 4 min' },
+  { name: 'Amine B.', text: 'vient de commander <strong>2× Demi-Poulet</strong>', time: 'il y a 7 min' },
+  { name: 'Sarah L.', text: "vient de commander l'<strong>Alloco + Poulet 🍌</strong>", time: 'il y a 9 min' },
+  { name: 'Moussa K.', text: 'vient de commander <strong>2× Menu Frites</strong>', time: 'il y a 12 min' },
+  { name: 'Yasmine T.', text: 'vient de commander une <strong>Salade Braisée</strong>', time: 'il y a 15 min' },
+  { name: 'Ibrahim S.', text: 'vient de commander un <strong>Menu Braisé + Bissap</strong>', time: 'il y a 18 min' },
+];
+let notifIdx = 0;
+function showNotif() {
+  const n = notifs[notifIdx % notifs.length];
+  document.getElementById('notifName').textContent = n.name;
+  document.getElementById('notifText').innerHTML = n.text;
+  document.getElementById('notifTime').textContent = n.time;
+  const el = document.getElementById('liveNotif');
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 5000);
+  notifIdx++;
+}
+setTimeout(() => { showNotif(); setInterval(showNotif, 10000); }, 4000);
+
+// ── COMMANDES COUNTER ──
+let cmdCount = 58;
+setInterval(() => {
+  if (Math.random() < 0.3) {
+    cmdCount++;
+    document.getElementById('cmd-count').textContent = cmdCount;
+  }
+}, 30000);
+
+// ── CLOSE MODAL ON OVERLAY CLICK ──
+document.getElementById('upsellModal').addEventListener('click', function(e) {
+  if (e.target === this) closeUpsell();
+});
+
+// ── VIDEO : joue une fois puis revient à la première image ──
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.setAttribute('playsinline', '');
+
+  // Quand la vidéo se termine : revient à t=0 et pause
+  heroVideo.addEventListener('ended', () => {
+    heroVideo.currentTime = 0;
+    heroVideo.pause();
+  });
+
+  // Lance la vidéo dès que possible
+  const tryPlay = () => heroVideo.play().catch(() => {});
+  tryPlay();
+  setTimeout(tryPlay, 500);
+  setTimeout(tryPlay, 1500);
+
+  // Fallback iOS : lance au premier toucher
+  ['touchstart', 'click'].forEach(evt => {
+    document.addEventListener(evt, () => tryPlay(), { once: true });
+  });
+}
+</script>
+</body>
+</html>
